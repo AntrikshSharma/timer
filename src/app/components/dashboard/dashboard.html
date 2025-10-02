@@ -1,0 +1,48 @@
+<div class="bg">
+  <app-clock-time></app-clock-time>
+  <div class="timer-master">
+    <div class="timer-container">
+      <div class="timer">
+        <div class="time">{{ time }}</div>
+        <div class="timer-control">
+          <button
+            matIconButton
+            [disabled]="timerRunning"
+            (mousedown)="increase()"
+            (mouseup)="stopIncrease()"
+            (mouseleave)="stopIncrease()"
+            (touchend)="stopIncrease()"
+            (click)="increaseOne()"
+          >
+            <mat-icon>arrow_drop_up</mat-icon>
+          </button>
+          <button
+            matIconButton
+            [disabled]="timerRunning"
+            (mousedown)="decrease()"
+            (mouseup)="stopDecrease()"
+            (mouseleave)="stopDecrease()"
+            (touchend)="stopDecrease()"
+            (click)="decreaseOne()"
+          >
+            <mat-icon>arrow_drop_down</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="actions">
+        <button matButton [disabled]="timerRunning" (click)="startTimer()">
+          START
+        </button>
+        <button matButton [disabled]="!timerRunning" (click)="pauseTime()">
+          PAUSE
+        </button>
+        <button matButton [disabled]="!timerRunning" (click)="stopTimer()">
+          STOP
+        </button>
+        <button matButton [disabled]="timerRunning" (click)="resetTime()">
+          RESET
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
